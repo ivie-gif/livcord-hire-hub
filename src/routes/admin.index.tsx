@@ -105,7 +105,7 @@ function AdminJobsPage() {
         title: form.title.trim(),
         company: form.company.trim(),
         location: form.location.trim(),
-        type: form.type as Job["type"],
+        type: form.type as "full_time" | "part_time" | "contract" | "internship",
         salary: form.salary.trim() || null,
         description: form.description.trim(),
         requirements: form.requirements.trim(),
@@ -117,10 +117,9 @@ function AdminJobsPage() {
         toast.success("Job updated");
       } else {
         const { data: { user } } = await supabase.auth.getUser();
-        const { error } = await supabase.from("jobs").insert({
-          ...payload,
-          created_by: user?.id ?? null,
-        });
+        const { error } = await supabase
+          .from("jobs")
+          .insert([{ ...payload, created_by: user?.id ?? null }]);
         if (error) throw error;
         toast.success("Job created");
       }

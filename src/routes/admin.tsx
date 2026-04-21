@@ -1,4 +1,4 @@
-import { createFileRoute, Outlet, Link, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, Outlet, Link, useNavigate, useLocation } from "@tanstack/react-router";
 import { useEffect } from "react";
 import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
@@ -12,13 +12,20 @@ export const Route = createFileRoute("/admin")({
 function AdminLayout() {
   const { user, isAdmin, loading } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+  const isLoginRoute = location.pathname === "/admin/login";
 
   useEffect(() => {
-    if (loading) return;
+    if (loading || isLoginRoute) return;
     if (!user) {
       navigate({ to: "/admin/login" });
     }
-  }, [user, loading, navigate]);
+  }, [user, loading, navigate, isLoginRoute]);
+
+  // Login route renders without admin layout chrome or guards
+  if (isLoginRoute) {
+    return <Outlet />;
+  }
 
   if (loading) {
     return (

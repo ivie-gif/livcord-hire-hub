@@ -13,12 +13,12 @@ function AdminLayout() {
   const { user, isAdmin, loading } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
-  const isLoginRoute = location.pathname === "/admin/login";
+  const isLoginRoute = location.pathname === "/control-panel-9f3a/login";
 
   useEffect(() => {
     if (loading || isLoginRoute) return;
     if (!user) {
-      navigate({ to: "/admin/login" });
+      navigate({ to: "/control-panel-9f3a/login" });
     }
   }, [user, loading, navigate, isLoginRoute]);
 
@@ -50,7 +50,7 @@ function AdminLayout() {
           className="mt-6"
           onClick={async () => {
             await supabase.auth.signOut();
-            navigate({ to: "/admin/login" });
+            navigate({ to: "/control-panel-9f3a/login" });
           }}
         >
           Sign out
@@ -69,12 +69,12 @@ function AdminLayout() {
           <h1 className="text-2xl font-semibold tracking-tight mt-1">Dashboard</h1>
         </div>
         <div className="flex items-center gap-2">
-          <Link to="/admin">
+          <Link to="/control-panel-9f3a">
             <Button variant="ghost" size="sm">
               Jobs
             </Button>
           </Link>
-          <Link to="/admin/applications">
+          <Link to="/control-panel-9f3a/applications">
             <Button variant="ghost" size="sm">
               Applications
             </Button>
@@ -84,7 +84,7 @@ function AdminLayout() {
             size="sm"
             onClick={async () => {
               await supabase.auth.signOut();
-              navigate({ to: "/admin/login" });
+              navigate({ to: "/control-panel-9f3a/login" });
             }}
           >
             Sign out

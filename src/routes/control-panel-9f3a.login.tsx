@@ -22,7 +22,7 @@ function LoginPage() {
 
   useEffect(() => {
     if (!loading && user && isAdmin) {
-      navigate({ to: "/admin" });
+      navigate({ to: "/control-panel-9f3a" });
     }
   }, [user, isAdmin, loading, navigate]);
 
@@ -34,7 +34,7 @@ function LoginPage() {
         const { error } = await supabase.auth.signUp({
           email,
           password,
-          options: { emailRedirectTo: `${window.location.origin}/admin` },
+          options: { emailRedirectTo: `${window.location.origin}/control-panel-9f3a` },
         });
         if (error) throw error;
         toast.success("Account created. You'll need an admin role assigned to access the dashboard.");

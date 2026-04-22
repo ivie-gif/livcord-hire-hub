@@ -4,7 +4,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 
-export const Route = createFileRoute("/admin")({
+export const Route = createFileRoute("/control-panel-9f3a")({
   head: () => ({ meta: [{ title: "Admin — Lumen Careers" }] }),
   component: AdminLayout,
 });

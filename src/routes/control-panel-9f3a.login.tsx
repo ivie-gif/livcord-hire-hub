@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { useAuth } from "@/hooks/useAuth";
 
-export const Route = createFileRoute("/admin/login")({
+export const Route = createFileRoute("/control-panel-9f3a/login")({
   head: () => ({ meta: [{ title: "Admin login — Lumen Careers" }] }),
   component: LoginPage,
 });

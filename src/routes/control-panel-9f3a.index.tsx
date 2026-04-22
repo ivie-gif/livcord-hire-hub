@@ -25,7 +25,7 @@ import { toast } from "sonner";
 import { formatJobType, formatDate } from "@/lib/jobs";
 import { Pencil, Trash2, Plus } from "lucide-react";
 
-export const Route = createFileRoute("/admin/")({
+export const Route = createFileRoute("/control-panel-9f3a/")({
   component: AdminJobsPage,
 });
 

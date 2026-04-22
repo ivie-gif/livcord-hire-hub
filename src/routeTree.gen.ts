@@ -9,17 +9,17 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as AdminRouteImport } from './routes/admin'
+import { Route as ControlPanel9f3aRouteImport } from './routes/control-panel-9f3a'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as AdminIndexRouteImport } from './routes/admin.index'
+import { Route as ControlPanel9f3aIndexRouteImport } from './routes/control-panel-9f3a.index'
 import { Route as JobsJobIdRouteImport } from './routes/jobs.$jobId'
-import { Route as AdminLoginRouteImport } from './routes/admin.login'
-import { Route as AdminApplicationsRouteImport } from './routes/admin.applications'
+import { Route as ControlPanel9f3aLoginRouteImport } from './routes/control-panel-9f3a.login'
+import { Route as ControlPanel9f3aApplicationsRouteImport } from './routes/control-panel-9f3a.applications'
 
-const AdminRoute = AdminRouteImport.update({
-  id: '/admin',
-  path: '/admin',
+const ControlPanel9f3aRoute = ControlPanel9f3aRouteImport.update({
+  id: '/control-panel-9f3a',
+  path: '/control-panel-9f3a',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -32,97 +32,98 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AdminIndexRoute = AdminIndexRouteImport.update({
+const ControlPanel9f3aIndexRoute = ControlPanel9f3aIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => AdminRoute,
+  getParentRoute: () => ControlPanel9f3aRoute,
 } as any)
 const JobsJobIdRoute = JobsJobIdRouteImport.update({
   id: '/jobs/$jobId',
   path: '/jobs/$jobId',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AdminLoginRoute = AdminLoginRouteImport.update({
+const ControlPanel9f3aLoginRoute = ControlPanel9f3aLoginRouteImport.update({
   id: '/login',
   path: '/login',
-  getParentRoute: () => AdminRoute,
+  getParentRoute: () => ControlPanel9f3aRoute,
 } as any)
-const AdminApplicationsRoute = AdminApplicationsRouteImport.update({
-  id: '/applications',
-  path: '/applications',
-  getParentRoute: () => AdminRoute,
-} as any)
+const ControlPanel9f3aApplicationsRoute =
+  ControlPanel9f3aApplicationsRouteImport.update({
+    id: '/applications',
+    path: '/applications',
+    getParentRoute: () => ControlPanel9f3aRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/admin': typeof AdminRouteWithChildren
-  '/admin/applications': typeof AdminApplicationsRoute
-  '/admin/login': typeof AdminLoginRoute
+  '/control-panel-9f3a': typeof ControlPanel9f3aRouteWithChildren
+  '/control-panel-9f3a/applications': typeof ControlPanel9f3aApplicationsRoute
+  '/control-panel-9f3a/login': typeof ControlPanel9f3aLoginRoute
   '/jobs/$jobId': typeof JobsJobIdRoute
-  '/admin/': typeof AdminIndexRoute
+  '/control-panel-9f3a/': typeof ControlPanel9f3aIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/admin/applications': typeof AdminApplicationsRoute
-  '/admin/login': typeof AdminLoginRoute
+  '/control-panel-9f3a/applications': typeof ControlPanel9f3aApplicationsRoute
+  '/control-panel-9f3a/login': typeof ControlPanel9f3aLoginRoute
   '/jobs/$jobId': typeof JobsJobIdRoute
-  '/admin': typeof AdminIndexRoute
+  '/control-panel-9f3a': typeof ControlPanel9f3aIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/admin': typeof AdminRouteWithChildren
-  '/admin/applications': typeof AdminApplicationsRoute
-  '/admin/login': typeof AdminLoginRoute
+  '/control-panel-9f3a': typeof ControlPanel9f3aRouteWithChildren
+  '/control-panel-9f3a/applications': typeof ControlPanel9f3aApplicationsRoute
+  '/control-panel-9f3a/login': typeof ControlPanel9f3aLoginRoute
   '/jobs/$jobId': typeof JobsJobIdRoute
-  '/admin/': typeof AdminIndexRoute
+  '/control-panel-9f3a/': typeof ControlPanel9f3aIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/about'
-    | '/admin'
-    | '/admin/applications'
-    | '/admin/login'
+    | '/control-panel-9f3a'
+    | '/control-panel-9f3a/applications'
+    | '/control-panel-9f3a/login'
     | '/jobs/$jobId'
-    | '/admin/'
+    | '/control-panel-9f3a/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
-    | '/admin/applications'
-    | '/admin/login'
+    | '/control-panel-9f3a/applications'
+    | '/control-panel-9f3a/login'
     | '/jobs/$jobId'
-    | '/admin'
+    | '/control-panel-9f3a'
   id:
     | '__root__'
     | '/'
     | '/about'
-    | '/admin'
-    | '/admin/applications'
-    | '/admin/login'
+    | '/control-panel-9f3a'
+    | '/control-panel-9f3a/applications'
+    | '/control-panel-9f3a/login'
     | '/jobs/$jobId'
-    | '/admin/'
+    | '/control-panel-9f3a/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
-  AdminRoute: typeof AdminRouteWithChildren
+  ControlPanel9f3aRoute: typeof ControlPanel9f3aRouteWithChildren
   JobsJobIdRoute: typeof JobsJobIdRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/admin': {
-      id: '/admin'
-      path: '/admin'
-      fullPath: '/admin'
-      preLoaderRoute: typeof AdminRouteImport
+    '/control-panel-9f3a': {
+      id: '/control-panel-9f3a'
+      path: '/control-panel-9f3a'
+      fullPath: '/control-panel-9f3a'
+      preLoaderRoute: typeof ControlPanel9f3aRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -139,12 +140,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/admin/': {
-      id: '/admin/'
+    '/control-panel-9f3a/': {
+      id: '/control-panel-9f3a/'
       path: '/'
-      fullPath: '/admin/'
-      preLoaderRoute: typeof AdminIndexRouteImport
-      parentRoute: typeof AdminRoute
+      fullPath: '/control-panel-9f3a/'
+      preLoaderRoute: typeof ControlPanel9f3aIndexRouteImport
+      parentRoute: typeof ControlPanel9f3aRoute
     }
     '/jobs/$jobId': {
       id: '/jobs/$jobId'
@@ -153,43 +154,53 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof JobsJobIdRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/admin/login': {
-      id: '/admin/login'
+    '/control-panel-9f3a/login': {
+      id: '/control-panel-9f3a/login'
       path: '/login'
-      fullPath: '/admin/login'
-      preLoaderRoute: typeof AdminLoginRouteImport
-      parentRoute: typeof AdminRoute
+      fullPath: '/control-panel-9f3a/login'
+      preLoaderRoute: typeof ControlPanel9f3aLoginRouteImport
+      parentRoute: typeof ControlPanel9f3aRoute
     }
-    '/admin/applications': {
-      id: '/admin/applications'
+    '/control-panel-9f3a/applications': {
+      id: '/control-panel-9f3a/applications'
       path: '/applications'
-      fullPath: '/admin/applications'
-      preLoaderRoute: typeof AdminApplicationsRouteImport
-      parentRoute: typeof AdminRoute
+      fullPath: '/control-panel-9f3a/applications'
+      preLoaderRoute: typeof ControlPanel9f3aApplicationsRouteImport
+      parentRoute: typeof ControlPanel9f3aRoute
     }
   }
 }
 
-interface AdminRouteChildren {
-  AdminApplicationsRoute: typeof AdminApplicationsRoute
-  AdminLoginRoute: typeof AdminLoginRoute
-  AdminIndexRoute: typeof AdminIndexRoute
+interface ControlPanel9f3aRouteChildren {
+  ControlPanel9f3aApplicationsRoute: typeof ControlPanel9f3aApplicationsRoute
+  ControlPanel9f3aLoginRoute: typeof ControlPanel9f3aLoginRoute
+  ControlPanel9f3aIndexRoute: typeof ControlPanel9f3aIndexRoute
 }
 
-const AdminRouteChildren: AdminRouteChildren = {
-  AdminApplicationsRoute: AdminApplicationsRoute,
-  AdminLoginRoute: AdminLoginRoute,
-  AdminIndexRoute: AdminIndexRoute,
+const ControlPanel9f3aRouteChildren: ControlPanel9f3aRouteChildren = {
+  ControlPanel9f3aApplicationsRoute: ControlPanel9f3aApplicationsRoute,
+  ControlPanel9f3aLoginRoute: ControlPanel9f3aLoginRoute,
+  ControlPanel9f3aIndexRoute: ControlPanel9f3aIndexRoute,
 }
 
-const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
+const ControlPanel9f3aRouteWithChildren =
+  ControlPanel9f3aRoute._addFileChildren(ControlPanel9f3aRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
-  AdminRoute: AdminRouteWithChildren,
+  ControlPanel9f3aRoute: ControlPanel9f3aRouteWithChildren,
   JobsJobIdRoute: JobsJobIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { createStart } from '@tanstack/react-start'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+  }
+}

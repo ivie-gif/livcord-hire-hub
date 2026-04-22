@@ -23,13 +23,6 @@ export function Header() {
           >
             About
           </Link>
-          <Link
-            to="/admin"
-            activeProps={{ className: "text-foreground" }}
-            className="text-muted-foreground hover:text-foreground transition-colors"
-          >
-            Admin
-          </Link>
         </nav>
       </div>
     </header>

@@ -6,7 +6,7 @@ import { toast } from "sonner";
 import { formatDate } from "@/lib/jobs";
 import { Download, Trash2, Mail, Phone } from "lucide-react";
 
-export const Route = createFileRoute("/control-panel-9f3a/applications")({
+export const Route = createFileRoute("/control-panel/applications")({
   component: AdminApplicationsPage,
 });
 

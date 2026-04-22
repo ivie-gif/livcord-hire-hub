@@ -25,7 +25,7 @@ import { toast } from "sonner";
 import { formatJobType, formatDate } from "@/lib/jobs";
 import { Pencil, Trash2, Plus } from "lucide-react";
 
-export const Route = createFileRoute("/control-panel-9f3a/")({
+export const Route = createFileRoute("/control-panel/")({
   component: AdminJobsPage,
 });
 
@@ -149,8 +149,8 @@ function AdminJobsPage() {
         <h2 className="text-lg font-medium">Jobs ({jobs.length})</h2>
         <Dialog open={open} onOpenChange={setOpen}>
           <DialogTrigger asChild>
-            <Button onClick={startCreate} size="sm">
-              <Plus className="h-4 w-4 mr-1.5" /> New job
+            <Button onClick={startCreate} size="sm" className="cursor-pointer">
+              <Plus className="h-4 w-4 mr-1.5"/> New job
             </Button>
           </DialogTrigger>
           <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">

@@ -31,11 +31,11 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lumen Careers — Find your next role" },
+      { title: "Livcord — Find your next role" },
       {
         name: "description",
         content:
-          "Browse open roles at Lumen and apply in minutes. Curated jobs, modern hiring.",
+          "Browse open roles at Livcord and apply in minutes. Curated jobs, modern hiring.",
       },
     ],
     links: [{ rel: "stylesheet", href: appCss }],

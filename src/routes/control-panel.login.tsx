@@ -7,8 +7,8 @@ import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { useAuth } from "@/hooks/useAuth";
 
-export const Route = createFileRoute("/control-panel-9f3a/login")({
-  head: () => ({ meta: [{ title: "Admin login — Lumen Careers" }] }),
+export const Route = createFileRoute("/control-panel/login")({
+  head: () => ({ meta: [{ title: "Admin login — Livcord" }] }),
   component: LoginPage,
 });
 
@@ -22,7 +22,7 @@ function LoginPage() {
 
   useEffect(() => {
     if (!loading && user && isAdmin) {
-      navigate({ to: "/control-panel-9f3a" });
+      navigate({ to: "/control-panel" });
     }
   }, [user, isAdmin, loading, navigate]);
 
@@ -34,7 +34,7 @@ function LoginPage() {
         const { error } = await supabase.auth.signUp({
           email,
           password,
-          options: { emailRedirectTo: `${window.location.origin}/control-panel-9f3a` },
+          options: { emailRedirectTo: `${window.location.origin}/control-panel` },
         });
         if (error) throw error;
         toast.success("Account created. You'll need an admin role assigned to access the dashboard.");
@@ -95,7 +95,7 @@ function LoginPage() {
       <button
         type="button"
         onClick={() => setMode(mode === "signin" ? "signup" : "signin")}
-        className="mt-6 text-sm text-muted-foreground hover:text-foreground underline underline-offset-4"
+        className="mt-6 text-sm text-muted-foreground hover:text-foreground underline underline-offset-4 cursor-pointer"
       >
         {mode === "signin" ? "Need an account? Sign up" : "Already have an account? Sign in"}
       </button>

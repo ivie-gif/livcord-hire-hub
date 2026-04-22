@@ -4,8 +4,8 @@ import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 
-export const Route = createFileRoute("/control-panel-9f3a")({
-  head: () => ({ meta: [{ title: "Admin — Lumen Careers" }] }),
+export const Route = createFileRoute("/control-panel")({
+  head: () => ({ meta: [{ title: "Admin — Livcord" }] }),
   component: AdminLayout,
 });
 
@@ -13,12 +13,12 @@ function AdminLayout() {
   const { user, isAdmin, loading } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
-  const isLoginRoute = location.pathname === "/control-panel-9f3a/login";
+  const isLoginRoute = location.pathname === "/control-panel/login";
 
   useEffect(() => {
     if (loading || isLoginRoute) return;
     if (!user) {
-      navigate({ to: "/control-panel-9f3a/login" });
+      navigate({ to: "/control-panel/login" });
     }
   }, [user, loading, navigate, isLoginRoute]);
 
@@ -50,7 +50,7 @@ function AdminLayout() {
           className="mt-6"
           onClick={async () => {
             await supabase.auth.signOut();
-            navigate({ to: "/control-panel-9f3a/login" });
+            navigate({ to: "/control-panel/login" });
           }}
         >
           Sign out
@@ -69,22 +69,23 @@ function AdminLayout() {
           <h1 className="text-2xl font-semibold tracking-tight mt-1">Dashboard</h1>
         </div>
         <div className="flex items-center gap-2">
-          <Link to="/control-panel-9f3a">
-            <Button variant="ghost" size="sm">
+          <Link to="/control-panel">
+            <Button variant="ghost" size="sm" className="cursor-pointer">
               Jobs
             </Button>
           </Link>
-          <Link to="/control-panel-9f3a/applications">
-            <Button variant="ghost" size="sm">
+          <Link to="/control-panel/applications">
+            <Button variant="ghost" size="sm" className="cursor-pointer">
               Applications
             </Button>
           </Link>
           <Button
             variant="outline"
             size="sm"
+            className="cursor-pointer"
             onClick={async () => {
               await supabase.auth.signOut();
-              navigate({ to: "/control-panel-9f3a/login" });
+              navigate({ to: "/control-panel/login" });
             }}
           >
             Sign out

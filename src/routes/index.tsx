@@ -9,12 +9,12 @@ import { MapPin, Briefcase, Search } from "lucide-react";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Open Roles — Lumen Careers" },
+      { title: "Open Roles — Livcord" },
       {
         name: "description",
-        content: "Discover open roles and apply in minutes. Curated jobs from Lumen.",
+        content: "Discover open roles and apply in minutes. Curated jobs from Livcord.",
       },
-      { property: "og:title", content: "Open Roles — Lumen Careers" },
+      { property: "og:title", content: "Open Roles — Livcord" },
       {
         property: "og:description",
         content: "Discover open roles and apply in minutes.",
